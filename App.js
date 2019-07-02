@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import Login from './screens/Login'
-import RequirementBoard from './screens/RequirementBoard'
-import Profile from './screens/Profile'
+import Login from './src/screens/Login'
+import RequirementBoard from './src/screens/RequirementBoard'
+import Profile from './src/screens/Profile'
 
 export default class App extends Component {
   render() {
