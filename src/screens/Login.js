@@ -21,8 +21,6 @@ export default class Login extends Component {
                         <Button title='ช่าง' onPress={() => navigate('RequirementBoard')}/>
                     </Row>
                 </Grid>
-                {/* <Button title='Go To Second' */}
-                {/* onPress={() => navigate('Profile')} /> */}
             </View>
         );
     }
