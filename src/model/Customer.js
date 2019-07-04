@@ -1,10 +1,10 @@
 export default class Customer {
-    constructor(name, password, email, img = null) {
+    constructor(name, password, email, startDate = new Date(), img = null, order = new Array()) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.startDate = new Date();
+        this.startDate = startDate;
         this.img = img;
-        this.order = new Array();
+        this.order = order;
     }
 }

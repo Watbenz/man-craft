@@ -37,7 +37,7 @@ export default class RequirementBoard extends Component {
                 <Dropdown
                     styleName="horizontal"
                     label='Filter'
-                    //data={data}
+                    data={data}
                     mass = {this.state.messages}
                 />
 

@@ -7,16 +7,25 @@ import firebase from 'firebase';
 
 export default class Login extends Component {
     state = {
-        data: ''
+        db: firebase.database()
     }
 
-    componentWillMount() {
-        let db = firebase.database();
-        db.ref('Messages/M1/MSS4').once('value').then((s) => {
-            this.setState({data: s.val().toString()});
-        });
+    // addData() {
+    //     this.state.db.ref('new').child('ass').set({
+    //         try: "Hello"
+    //     });
+    // }
 
-    }
+    // componentWillMount() {
+    //     this.state.db.ref('customer').once('value').then((s) => {
+    //         let jsonStr = JSON.stringify(s.val());
+    //         let json = JSON.parse(jsonStr);
+
+    //         this.setState({data: json['6010405289'].toString()})
+
+    //     });
+
+    // }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -24,7 +33,7 @@ export default class Login extends Component {
             <View style={styles.container}>
                 <Grid>
                     <Row style={styles.container}>
-                        <Text>{this.state.data}</Text>
+                        <Text>Man Craft</Text>
                     </Row>
 
                     <Row style={styles.container}>

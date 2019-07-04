@@ -1,5 +1,5 @@
 export default class UserRequirement {
-    constructor(user, topic, type, width = 0, height = 0, color = 'none', dateOrder = new Date(), isOnWork = false) {
+    constructor(user='none', topic, type, width = 0, height = 0, color = 'none', dateOrder = new Date(), isOnWork = 0, other='') {
         this.user = user;
         this.topic = topic;
         this.type = type;
@@ -8,5 +8,6 @@ export default class UserRequirement {
         this.color = color;
         this.dateOrder = dateOrder;
         this.isOnWork = isOnWork;
+        this.other = other;
     }
 }
