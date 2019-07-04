@@ -24,6 +24,9 @@ export default class Profile extends Component {
 
     static navigationOptions = {
         title: 'Profile',
+        headerStyle: {
+            backgroundColor: '#60a9a6'
+        }
     };
 
     render() {
@@ -66,7 +69,7 @@ export default class Profile extends Component {
                     </Grid>
                 </Content>
 
-                <Footer>
+                <Footer style={{backgroundColor: '#60a9a6'}}>
                     <FooterTab>
                         <Button vertical>
                             <Icon size={20} name="history" />

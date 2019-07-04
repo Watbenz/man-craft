@@ -59,19 +59,11 @@ function userReqReducer(state = obj, action) {
       newState[action.key] = action.payload;
       break;
   }
-
-  // } else if (action.type == 'REMOVE') {
-  //   newState = state.filter((item) => {
-  //     return (item.id !== action.payload.id);
-  //   })
-  // }
   return newState;
 }
 
 // Connect the screens to Redux.
 let reducers = combineReducers({ user: userReqReducer })
-let ProfileContainer = connect(mapStateToProp)(Profile);
-let ItemContainer = connect(mapStateToProp)(Item);
 let store = createStore(reducers);
 
 
@@ -85,9 +77,9 @@ const RootStack = createStackNavigator({
       header: null
     }
   },
-  Profile: ProfileContainer,
-  RequirementBoard: RequirementBoard,
-  Item: ItemContainer,
+  Profile: connect(mapStateToProp)(Profile),
+  RequirementBoard: connect(mapStateToProp)(RequirementBoard),
+  Item: connect(mapStateToProp)(Item),
   Catagory: ChooseCatagory
 }, {
     initialRouteName: 'Login'

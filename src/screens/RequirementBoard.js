@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { SearchBar, ButtonGroup } from 'react-native-elements';
 import { Dropdown } from 'react-native-material-dropdown';
 import { Container, Header, Content, Footer, FooterTab, Button, Icon, List, ListItem, Thumbnail, Left, Body, Right } from 'native-base';
@@ -38,13 +38,13 @@ export default class RequirementBoard extends Component {
                     styleName="horizontal"
                     label='Filter'
                     data={data}
-                    mass = {this.state.messages}
+                    mass={this.state.messages}
                 />
 
                 <Container>
                     <Content>
                         <List>
-                            <ListItem onPress={() => navigate('Chat')}>
+                            {/* <ListItem onPress={() => navigate('Chat')}>
                                 <Left>
                                     <Thumbnail source={{ uri: 'https://image.flaticon.com/icons/png/512/105/105291.png' }} />
                                 </Left>
@@ -65,8 +65,20 @@ export default class RequirementBoard extends Component {
                                 <Right>
                                     <Icon name="arrow-forward" />
                                 </Right>
-                            </ListItem>
+                            </ListItem> */}
                             <ListItem>
+                        {/* <TouchableOpacity>
+        <View style={styles.container}>
+            <Image
+                style={styles.icon}
+                source={require(this.props.pathImage)}
+            />
+            <View>
+                <Text style={styles.header}>{this.props.title}</Text>
+                <Text style={styles.body}>{this.props.desc}</Text>
+            </View>
+        </View>
+    </TouchableOpacity> */}
                                 <Left>
                                     <Thumbnail source={{ uri: 'https://cdn0.iconfinder.com/data/icons/thin-clothing/24/thin-0986_t-shirt-512.png' }} />
                                 </Left>
@@ -96,3 +108,29 @@ export default class RequirementBoard extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        margin: 10,
+        backgroundColor: '#fff5cf',
+        borderRadius: 4,
+        borderWidth: 0.5,
+        borderColor: '#fff5cf',
+    }, icon: {
+        width: 100,
+        height: 100,
+        margin: 10,
+        borderRadius: 4,
+        borderWidth: 0.5,
+    }, header: {
+        fontSize: 30,
+        color: '#000000',
+        fontWeight: 'bold',
+    }, body: {
+        fontSize: 10,
+        color: '#C0C0C0'
+    }
+});
