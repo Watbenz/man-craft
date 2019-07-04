@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 13824,
-  "expoServerNgrokUrl": "https://6z-fan.anonymous.man-craft.exp.direct",
-  "packagerNgrokUrl": "https://packager.6z-fan.anonymous.man-craft.exp.direct",
-  "ngrokPid": 8040,
+  "packagerPid": 3712,
+  "expoServerNgrokUrl": "https://ns-ecd.anonymous.man-craft.exp.direct",
+  "packagerNgrokUrl": "https://packager.ns-ecd.anonymous.man-craft.exp.direct",
+  "ngrokPid": 8668,
   "webpackServerPort": null
 }

@@ -6,23 +6,14 @@ export default class Item extends Component {
 
     render() {
         const { navigation } = this.props;
-        const items = JSON.stringify(navigation.getParam('items')) ;
-        const arr = new Array();
+        const data = JSON.stringify(navigation.getParam('item')) ;
+        const obj = JSON.parse(data);
 
-        //     let obj = new UserRequirement(
-        //         JSON.parse(e.user),
-        //         JSON.parse(e.topic),
-        //         JSON.parse(e.type),
-        //         parseFloat(JSON.parse(e.width)) ,
-        //         parseFloat(JSON.parse(e.height)) ,
-        //         JSON.parse(e.colors),
-        //         JSON.parse(e.dateOrder),
-        //         JSON.parse(e.isOnWork)
-        //     );
-        
+        let userReq = new UserRequirement(obj.user, obj.topic, obj.type, obj.width, obj.height, obj.color, obj.dateOrder, obj.isOnWork);
+
         return (
             <View style={styles.container}>
-                <Text> This is Hello </Text>
+                <Text> {userReq.topic} </Text>
             </View>
         )
     }
@@ -34,4 +25,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     }
-})
+});

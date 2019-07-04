@@ -12,11 +12,10 @@ export default class Profile extends Component {
         title: 'Profile',
     };
 
-    handleOnPressItem(item, i) {
+    handleOnPressItem(item) {
         const { navigate } = this.props.navigation;
         navigate('Item', {
             item: item,
-            index: i
         });
     }
 
