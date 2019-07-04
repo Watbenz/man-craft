@@ -3,11 +3,25 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Container, Header, Content, Footer, FooterTab, Button, List } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Card } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler';
-import UserRequirement from '../model/UserRequirement'
+import UserRequirement from '../model/UserRequirement';
+import { createStore } from 'redux';
 
 export default class Profile extends Component {
+
+    reducerManageUser(state, action) {
+        if (action.type == 'ADD') {
+            newState = [...state, action.payload]
+            return newState;
+        } else if (action.type == 'REMOVE') {
+            newState = state.filter((user) => {
+                return (action.payload.id !== user.id);
+            });
+            return newState;
+        }
+        return state;
+    }
+
     static navigationOptions = {
         title: 'Profile',
     };
@@ -20,6 +34,28 @@ export default class Profile extends Component {
     }
 
     render() {
+        const initStateUser = [{ id: 1, name: 'benz', age: 25 }, { id: 2, name: 'chy', age: 23 }];
+        const store = createStore(this.reducerManageUser, initStateUser);
+        store.dispatch({
+            type: 'ADD',
+            payload: {
+                id: 3,
+                name: 'benz',
+                age: 25
+            }
+        })
+        console.log("Hello");
+        console.log(store.getState());
+        console.log("------------------");
+        store.dispatch({
+            type: 'REMOVE',
+            payload: {
+                id: 1
+            }
+        })
+        console.log(store.getState());
+
+
         return (
             <Container>
                 <Content contentContainerStyle={{ flex: 1 }}>

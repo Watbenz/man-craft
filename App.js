@@ -41,7 +41,7 @@ const RootStack = createStackNavigator({
   },
   RequirementBoard: RequirementBoard,
   Profile: Profile,
-  Item: Item
+  Item: Item,
 });
 
 const AppContainer = createAppContainer(RootStack);

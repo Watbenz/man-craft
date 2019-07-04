@@ -11,9 +11,6 @@ export default class Login extends Component {
     }
 
     componentWillMount() {
-        // InteractionManager.runAfterInteractions(() => {
-
-        // })
         let db = firebase.database();
         db.ref('Messages/M1/MSS4').once('value').then((s) => {
             this.setState({data: s.val().toString()});
