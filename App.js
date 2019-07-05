@@ -7,6 +7,8 @@ import Item from './src/screens/Item';
 import ChooseCatagory from './src/screens/ChooseCategory';
 import UserRequirement from './src/model/UserRequirement';
 import Customer from './src/model/Customer';
+import Hatform from './src/form/HatForm';
+import BasketForm from './src/form/BasketForm';
 import "firebase/database";
 import firebase from 'firebase';
 import { Provider, connect } from 'react-redux';
@@ -80,7 +82,9 @@ const RootStack = createStackNavigator({
   Profile: connect(mapStateToProp)(Profile),
   RequirementBoard: connect(mapStateToProp)(RequirementBoard),
   Item: connect(mapStateToProp)(Item),
-  Catagory: ChooseCatagory
+  Catagory: ChooseCatagory,
+  Hat: Hatform,
+  Basket: BasketForm
 }, {
     initialRouteName: 'Login'
   });

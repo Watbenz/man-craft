@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Button } from 'react-native';
-import { Container, Header, Content, Form, Item, Input, Label, Grid, Col } from 'native-base';
+import { Container, Header, Content, Form, Item, Input, Label, Grid, Col, Footer, FooterTab } from 'native-base';
 import { Row } from 'react-native-easy-grid';
 
 

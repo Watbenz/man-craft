@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Button, Image } from 'react-native'
-import { Thumbnail, Container } from 'native-base'
+import { Thumbnail, Container, Content, Footer, FooterTab } from 'native-base'
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 export default class Item extends Component {
@@ -8,11 +8,18 @@ export default class Item extends Component {
         this.check();
     }
 
+    static navigationOptions = {
+        title: 'Artisan',
+        headerStyle: {
+            backgroundColor: '#60a9a6'
+        }
+    };
+
     state = {
         item: this.props.userReq[this.props.dataAt],
         progess: this.props.userReq[this.props.dataAt].isOnWork,
         massage: '',
-        nameImage: ''
+        uri: ''
     }
 
     check() {
@@ -20,37 +27,37 @@ export default class Item extends Component {
             case (0):
                 this.setState({
                     massage: "wait for customer accept prototype",
-                    nameImage: "prototypeCut.png"
+                    uri: "https://scontent.fbkk2-7.fna.fbcdn.net/v/t1.15752-9/65812709_633460277132854_1617101860353605632_n.png?_nc_cat=106&_nc_oc=AQn-_8KvrZxCN_2oVejM3dUnjeKBryfRumyUhnHz8z16RG0T0tTNsxJJV3HJQfh_7oQ&_nc_ht=scontent.fbkk2-7.fna&oh=be73237282da88008c33299694543bda&oe=5DB22CE2"
                 });
                 break;
             case (1):
                 this.setState({
                     massage: "customer accepted prototype",
-                    nameImage: "prototypeCut.png"
+                    uri: "https://scontent.fbkk2-7.fna.fbcdn.net/v/t1.15752-9/65812709_633460277132854_1617101860353605632_n.png?_nc_cat=106&_nc_oc=AQn-_8KvrZxCN_2oVejM3dUnjeKBryfRumyUhnHz8z16RG0T0tTNsxJJV3HJQfh_7oQ&_nc_ht=scontent.fbkk2-7.fna&oh=be73237282da88008c33299694543bda&oe=5DB22CE2"
                 });
                 break;
             case (2):
                 this.setState({
                     massage: "customer accepted 50% of project",
-                    nameImage: "Cut50.png"
+                    uri: "https://scontent.fbkk2-8.fna.fbcdn.net/v/t1.15752-9/66281489_654660575040458_2440838010330152960_n.png?_nc_cat=103&_nc_oc=AQlwU4WvdnWeC47dPrC1sBgz8_KUtycnbJn_YFv7z9lw4Zuf6pupLJ8W7inGUh6CVqs&_nc_ht=scontent.fbkk2-8.fna&oh=590a44f49ca2d589eaa18f02f5aba20c&oe=5D823965"
                 });
                 break;
             case (3):
                 this.setState({
                     massage: "customer accepted 100% of project",
-                    nameImage: "Cut100.png"
+                    uri: "https://scontent.fbkk2-8.fna.fbcdn.net/v/t1.15752-9/65811978_2126037337524253_5900063730623840256_n.png?_nc_cat=105&_nc_oc=AQkWFMPB9R9wPmAYgjlWupiUD3I5hRb0MVH8Km95LDP1guUtMbXJZY-kmg8QJ0hG07g&_nc_ht=scontent.fbkk2-8.fna&oh=a8c4ecf33ae2922103717da950b6038f&oe=5DB1E64F"
                 });
                 break;
             case (4):
                 this.setState({
                     massage: "send project",
-                    nameImage: "deliveryCut.png"
+                    uri: "https://scontent.fbkk2-6.fna.fbcdn.net/v/t1.15752-9/65831111_2301352616772726_2363447819257249792_n.png?_nc_cat=104&_nc_oc=AQnCBq_Hau7NstdPlrZg-udtN2Ld6jQpLlKhk6Cx0MWsFJxAJOJm7dz545f7eu7xQe0&_nc_ht=scontent.fbkk2-6.fna&oh=6c75b2e8da8f4aa1f63a67b8de3f68bf&oe=5DAB8B6E"
                 });
                 break;
             case (5):
                 this.setState({
                     massage: "receive project",
-                    nameImage: "finishCut.png"
+                    uri: "https://scontent.fbkk2-6.fna.fbcdn.net/v/t1.15752-9/65831111_2301352616772726_2363447819257249792_n.png?_nc_cat=104&_nc_oc=AQnCBq_Hau7NstdPlrZg-udtN2Ld6jQpLlKhk6Cx0MWsFJxAJOJm7dz545f7eu7xQe0&_nc_ht=scontent.fbkk2-6.fna&oh=6c75b2e8da8f4aa1f63a67b8de3f68bf&oe=5DAB8B6E"
                 });
                 break;
         }
@@ -71,34 +78,39 @@ export default class Item extends Component {
 
     render() {
         return (
-            <Container>
-                <Grid>
-                    <Row>
-                        <View style={styles.container}>
-                            {this.selectImageByTag()}
 
+            <Container style={{ flex: 1 }}>
+                <Content contentContainerStyle={{ flex: 1 }}>
+                    <Grid>
+                        <Row>
                             <View style={styles.container}>
 
-                                <Image
-                                    style={{ width: 100, height: 100 }}
-                                    source={require('../../asserts/' + this.state.nameImage)}
-                                />
-                                <Text>{this.state.massage}</Text>
-                                <Text>Detail Requirement</Text>
-                                <Button
-                                    title={this.state.nameImage}
-                                    color="#841584"
-                                    accessibilityLabel="Learn more about this purple button"
-                                >button</Button>
+                                <View style={styles.container}>
+
+                                    <Image
+                                        style={{ width: 100, height: 100 }}
+                                        source={{ uri: this.state.uri }}
+                                    />
+                                </View>
                             </View>
-                        </View>
-                    </Row>
-                    <Row>
-                        <View style={styles.container}>
-                            <Text> {this.state.item.topic} </Text>
-                        </View>
-                    </Row>
-                </Grid>
+                        </Row>
+                        <Row>
+                            <View style={styles.container}>
+                            {this.selectImageByTag()}
+                                <Text> {this.state.item.topic} </Text>
+                                <Text>{this.state.massage}</Text>
+                            </View>
+                        </Row>
+                    </Grid>
+                </Content>
+
+                <Footer>
+                    <FooterTab style={{ backgroundColor: '#841584', flex: 1, justifyContent: 'center' }}>
+                        <Button
+                            title={"Accept"}
+                        >button</Button>
+                    </FooterTab>
+                </Footer>
             </Container>
         )
     }

@@ -8,11 +8,14 @@ export default class Hatform extends Component {
 
     static navigationOptions = {
         title: 'หมวก',
+        headerStyle: {
+            backgroundColor: '#bfd8d5',
+        }
     };
 
     render() {
         return (
-            <Container>
+            <Container style={{ backgroundColor: '#fcf8f3'}}>
                 <Content>
                     <Form>
                         <Grid>
@@ -65,7 +68,7 @@ export default class Hatform extends Component {
                         </Grid>
                     </Form>
                 </Content>
-                <Footer>
+                <Footer style={{ backgroundColor: '#bfd8d5' }}>
                     <FooterTab>
                         <Button vertical>
                             {/* <Icon name="home" /> */}
